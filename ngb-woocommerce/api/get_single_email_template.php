@@ -15,7 +15,7 @@ try{
         $qry = "SELECT * FROM ". $table_name ." WHERE template_name = '". $template_name ."'";
         $results = $wpdb->get_row($qry);
         if(!empty($results)){
-
+            
             $data = array(
                     'id'                => $results->id,
                     'template_name'     => $results->template_name,
@@ -23,7 +23,7 @@ try{
                     'type'              => $results->template_type
                     );
             $response['code'] = '11';
-            $response['msg'] = "";
+            $response['msg'] = "Success";
             $response['data'] = $data;
             echo json_encode($response); 
             return;
@@ -38,7 +38,7 @@ try{
 
     }else{
         $response['code'] = '01';
-        $response['msg'] = "No Email Template Found";
+        $response['msg'] = "Template name not found";
         $response['data'] = '';
         echo json_encode($response); 
         return;    

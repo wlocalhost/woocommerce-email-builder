@@ -10,6 +10,7 @@ Author URI: https://www.mobilyte.com
 
 define( 'MY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 include( MY_PLUGIN_PATH . 'inc/ngb-functions.php');
+include( MY_PLUGIN_PATH . 'inc/email-api-functions.php');
 
 /* Activation hook function */
 function ngb_woocommerce_activation(){
@@ -19,7 +20,7 @@ function ngb_woocommerce_activation(){
     $sql = "CREATE TABLE $db_table_name (
                 id int(11) NOT NULL auto_increment,
                 template_name varchar(255) NOT NULL,
-                template_content text NOT NULL,
+                template_content longtext NOT NULL,
                 template_type enum('woocommerce_email', 'contact_form') NOT NULL,
                 created_at DATETIME NOT NULL,
                 updated_at DATETIME NULL,
