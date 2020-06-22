@@ -20,11 +20,12 @@ function ngb_woocommerce_activation(){
     $sql = "CREATE TABLE $db_table_name (
                 id int(11) NOT NULL auto_increment,
                 template_name varchar(255) NOT NULL,
-                template_content longtext NOT NULL,
-                template_type enum('woocommerce_email', 'contact_form') NOT NULL,
-                created_at DATETIME NOT NULL,
+                template_content longtext NULL,
+                email_object text NULL,
+                template_type enum('woocommerce_email', 'contact_form') NULL,
+                created_at DATETIME NULL,
                 updated_at DATETIME NULL,
-                created_by int(11) NOT NULL,
+                created_by int(11) NULL,
                 UNIQUE KEY id (id)
         ) $charset_collate;";
 
