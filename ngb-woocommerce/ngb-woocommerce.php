@@ -21,7 +21,7 @@ function ngb_woocommerce_activation(){
                 id int(11) NOT NULL auto_increment,
                 template_name varchar(255) NOT NULL,
                 template_content longtext NULL,
-                email_object text NULL,
+                email_object longtext NULL,
                 template_type enum('woocommerce_email', 'contact_form') NULL,
                 created_at DATETIME NULL,
                 updated_at DATETIME NULL,

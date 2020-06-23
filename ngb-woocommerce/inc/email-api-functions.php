@@ -42,7 +42,7 @@ function ngb_get_all_email_template() {
 
     global $wpdb;
     $table_name = $wpdb->prefix . 'ngb_woocommerce_emails';
-    $qry = "SELECT id, template_name,email_object, template_type FROM ". $table_name ." ORDER BY id DESC";
+    $qry = "SELECT id, template_name, template_type FROM ". $table_name ." ORDER BY id DESC";
     $results = $wpdb->get_results($qry);
 
     if (empty($results)) {
@@ -78,8 +78,9 @@ function ngb_update_email_template(WP_REST_Request $request){
         return new WP_Error( 'update_template', 'email object is empty', array('status' => 404) );
     }
     else{
-        $query = "UPDATE ". $table_name ." SET template_content = '". $template_content ."',email_object = '". $email_object_encode ."', updated_at = '". $date ."' WHERE template_name = '". $template_name ."'";
-        $result = $wpdb->query($wpdb->prepare($query));
+        $qry = "UPDATE `". $table_name ."` SET template_content = '". $template_content ."',email_object = ". $email_object_encode .", updated_at = '". $date ."' WHERE template_name = '". $template_name ."'";
+        //$result = $wpdb->query($wpdb->prepare($qry));
+        $result = $wpdb->query($qry);
         if(empty($result)){
             return new WP_Error( 'update_template', 'unable to update template', array('status' => 404) );
         }
@@ -104,8 +105,16 @@ function ngb_woocommerce_get_email_template(WP_REST_Request $request){
 
     $query = "SELECT id, template_name, template_content, email_object, template_type FROM ". $table_name ." WHERE template_name = '". $template_name ."'";
     $results = $wpdb->get_row($query);
+    $email_object = json_decode($results->email_object);
+    $result_array = array(
+                        'id'                    => $results->id,
+                        'template_name'         => $results->template_name,
+                        'template_content'      => $results->template_content,
+                        'email_object'          => $email_object,
+                        'template_type'         => $results->template_type
+                    );
     if(!empty($results)){
-        $response = new WP_REST_Response($results);
+        $response = new WP_REST_Response($result_array);
         $response->set_status(200);
         return $response;
     }else{
@@ -146,14 +155,8 @@ function ngb_save_email_template(WP_REST_Request $request){
     }
 
     // If template name not exists then save in DB
-    $result = $wpdb->insert($table_name, array(
-            'template_name' => $template_name,
-            'template_content' => $template_content,
-            'email_object' => $email_object_encode,
-            'template_type' => $template_type,
-            'created_at' => $date,
-            'created_by' => $current_user_id
-    ));
+    $qry = "INSERT INTO ". $table_name ." (`template_name`, `template_content`, `email_object`, `template_type`, `created_at`, created_by) VALUES ('$template_name', $template_content, $email_object_encode, '$template_type', '$date', $current_user_id)";
+    $result = $wpdb->query($qry);
 
     if($result){
         $success = 'Template saved successfully';
