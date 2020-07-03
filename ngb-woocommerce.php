@@ -74,3 +74,13 @@ function ngb_woo_add_plugin_page_settings_link($links)
     $links[] = '<a href="' . admin_url('?page=ngbwoocommerce-plugin') . '">' . __('Settings') . '</a>';
     return $links;
 }
+
+function base_tag()
+{
+?>
+    <script>
+        // window.__webpack_public_path__ = '<?= plugins_url('js/ngb/', __FILE__) ?>'
+    </script>
+<?php
+}
+add_action('admin_head', 'base_tag');
