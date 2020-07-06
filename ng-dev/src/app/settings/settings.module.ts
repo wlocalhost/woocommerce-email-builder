@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
+import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
 import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from './settings.component';
-import { NgDoBootstrapModule } from '../NgDoBoostrapModule';
-
-
 
 @NgModule({
   declarations: [SettingsComponent],

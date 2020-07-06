@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
+import { SharedModule } from '../shared/shared.module';
 import { TemplatesComponent } from './templates.component';
-import { NgDoBootstrapModule } from "../NgDoBoostrapModule";
 
 @NgModule({
   declarations: [TemplatesComponent],

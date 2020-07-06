@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
+import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
 import { WidgetsComponent } from './widgets.component';
 import { SharedModule } from '../shared/shared.module';
-import { NgDoBootstrapModule } from '../NgDoBoostrapModule';
 
 
 @NgModule({

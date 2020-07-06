@@ -1,13 +1,31 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>NgDev</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    window.NGB = {
+      current_slug: 'ngb-templates'
+    }
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
+  <!-- <script>
+    window.ngxLazyModulesLoaded = function (obj) {
+      console.log(obj)
+      obj.load('ngb-woocommerce')
+
+      setTimeout(() => {
+        obj.load('ngb-templates')
+      }, 3000)
+    }
+  </script> -->
 </body>
+
 </html>

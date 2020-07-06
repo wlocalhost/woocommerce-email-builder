@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
+
 import { WoocommerceTemplatesComponent } from './woocommerce-templates.component';
 import { SharedModule } from '../shared/shared.module';
-import { NgDoBootstrapModule } from '../NgDoBoostrapModule';
 
 
 
