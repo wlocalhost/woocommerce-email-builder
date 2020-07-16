@@ -1,13 +1,32 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>NgDev</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script>
+    window.NGB = {
+      current_slug: 'ngb-woocommerce'
+    }
+  </script>
 <link rel="stylesheet" href="/wp-content/plugins/woocommerce-email-builder/js/ngb/styles.css"></head>
+
 <body>
   <app-root></app-root>
+  <!-- <script>
+    window.ngxLazyModulesLoaded = function (obj) {
+      console.log(obj)
+      obj.load('ngb-woocommerce')
+
+      setTimeout(() => {
+        obj.load('ngb-templates')
+      }, 3000)
+    }
+  </script> -->
 <script src="/wp-content/plugins/woocommerce-email-builder/js/ngb/runtime.js" defer></script><script src="/wp-content/plugins/woocommerce-email-builder/js/ngb/polyfills.js" defer></script><script src="/wp-content/plugins/woocommerce-email-builder/js/ngb/main.js" defer></script></body>
+
 </html>

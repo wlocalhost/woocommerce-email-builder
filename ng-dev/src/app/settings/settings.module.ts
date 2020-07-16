@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
+import { NgxDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
 import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from './settings.component';
@@ -10,6 +10,6 @@ import { SettingsComponent } from './settings.component';
     SharedModule
   ]
 })
-export class SettingsModule extends NgDoBootstrapModule {
+export class SettingsModule extends NgxDoBootstrapModule {
   bootstrapComponent = SettingsComponent
 }

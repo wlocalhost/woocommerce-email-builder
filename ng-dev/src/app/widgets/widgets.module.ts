@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
+import { NgxDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
 import { WidgetsComponent } from './widgets.component';
 import { SharedModule } from '../shared/shared.module';
@@ -11,6 +11,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ]
 })
-export class WidgetsModule extends NgDoBootstrapModule {
+export class WidgetsModule extends NgxDoBootstrapModule {
   bootstrapComponent = WidgetsComponent
 }

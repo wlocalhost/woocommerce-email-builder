@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NgDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
+import { NgxDoBootstrapModule } from '@wanoo21/ngx-lazy-modules';
 
 import { WoocommerceTemplatesComponent } from './woocommerce-templates.component';
 import { SharedModule } from '../shared/shared.module';
@@ -12,6 +12,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ]
 })
-export class WoocommerceTemplatesModule extends NgDoBootstrapModule {
+export class WoocommerceTemplatesModule extends NgxDoBootstrapModule {
   bootstrapComponent = WoocommerceTemplatesComponent
 }
